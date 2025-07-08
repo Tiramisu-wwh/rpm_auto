@@ -5,6 +5,7 @@ import logging
 import os
 from datetime import datetime
 
+
 class Logger:
     """日志管理类"""
     
@@ -67,4 +68,4 @@ class Logger:
     
     def critical(self, message):
         """记录严重错误级别日志"""
-        self.logger.critical(message) 
+        self.logger.critical(message)

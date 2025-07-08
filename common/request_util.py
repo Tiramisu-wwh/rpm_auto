@@ -5,6 +5,7 @@ from common.logger import Logger
 
 logger = Logger().get_logger()
 
+
 class RequestUtil:
     """HTTP请求工具类"""
     
