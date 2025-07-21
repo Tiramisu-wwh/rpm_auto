@@ -49,3 +49,6 @@ config/config.yaml
 
 # 配置文件备份
 config/config_*.yaml 
+
+# augment
+.augment/
