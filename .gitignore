@@ -50,8 +50,13 @@ config/config.yaml
 # 配置文件备份
 config/config_*.yaml 
 
+<<<<<<< HEAD
 # Augment
 .augment/
 
 # lingma
 .lingma/
+=======
+# augment
+.augment/
+>>>>>>> 14d8cc2e3ca560becac95dc98f06ae2351644518

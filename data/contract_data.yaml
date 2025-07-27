@@ -5,9 +5,39 @@ create_contract:
     amount: 100000
     type: "服务合同"
     status: "draft"
-    description: "这是一个自动化测试创建的合同"
-    start_date: "2024-01-01"
-    end_date: "2024-12-31"
+  
+  # 期望的响应数据校验
+  expected_response:
+    schema:
+      code: str
+      message: str
+      data: dict
+    
+    business_rules:
+      - field: "code"
+        operator: "eq"
+        value: "200"
+        message: "响应码必须为200"
+      
+      - field: "data.id"
+        operator: "gt"
+        value: 0
+        message: "合同ID必须大于0"
+      
+      - field: "data.name"
+        operator: "eq"
+        value: "自动化测试合同"
+        message: "合同名称必须与输入一致"
+      
+      - field: "data.amount"
+        operator: "eq"
+        value: 100000
+        message: "合同金额必须与输入一致"
+      
+      - field: "data.status"
+        operator: "in"
+        value: ["draft", "active", "pending"]
+        message: "合同状态必须在允许范围内"
     
   invalid_data:
     missing_name:
@@ -42,6 +72,25 @@ get_contract:
     invalid_size:
       page: 1
       size: 0
+
+  expected_response:
+    schema:
+      code: str
+      data: dict
+      total: int
+      page: int
+      size: int
+    
+    business_rules:
+      - field: "data"
+        operator: "length"
+        value: 10
+        message: "默认返回10条数据"
+      
+      - field: "total"
+        operator: "gte"
+        value: 0
+        message: "总数必须大于等于0"
 
 update_contract:
   valid_updates:
