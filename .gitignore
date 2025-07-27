@@ -49,3 +49,9 @@ config/config.yaml
 
 # 配置文件备份
 config/config_*.yaml 
+
+# Augment
+.augment/
+
+# lingma
+.lingma/
